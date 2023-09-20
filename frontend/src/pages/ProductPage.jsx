@@ -11,7 +11,6 @@ import {
 } from 'react-bootstrap';
 import axios from 'axios';
 import Rating from '../components/Rating.jsx';
-import products from '../products.js';
 
 const ProductPage = () => {
   const [product, setProduct] = useState({});
