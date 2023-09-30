@@ -39,7 +39,6 @@ Product.propTypes = {
     brand: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    countInStock: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
     numReviews: PropTypes.number.isRequired,
   }).isRequired,
