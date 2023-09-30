@@ -2,7 +2,7 @@ import { __prod__ } from '../config/constants.js';
 
 const notFound = (req, res, next) => {
   const error = new Error(`Not Found -  ${req.originalUrl}`);
-  res.statusd(404);
+  res.status(404);
   next(error);
 };
 
