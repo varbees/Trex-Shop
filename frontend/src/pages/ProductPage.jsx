@@ -11,7 +11,7 @@ import {
   Form,
 } from 'react-bootstrap';
 import Loader from '../components/Loader.jsx';
-import Message from '../components/message.jsx';
+import Message from '../components/Message.jsx';
 import Rating from '../components/Rating.jsx';
 import { useGetProductDetailsQuery } from '../slices/productsApiSlice.js';
 import { addToCart } from '../slices/cartSlice.js';
