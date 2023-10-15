@@ -13,6 +13,7 @@ import './assets/styles/index.css';
 import App from './App.jsx';
 import Home from './pages/Home.jsx';
 import ProductPage from './pages/ProductPage';
+import CartPage from './pages/cartPage';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<App />}>
       <Route path='/' index={true} element={<Home />} />
       <Route path='/product/:id' element={<ProductPage />} />
+      <Route path='/cart' element={<CartPage />} />
     </Route>
   )
 );
