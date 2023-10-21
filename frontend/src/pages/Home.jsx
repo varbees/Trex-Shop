@@ -12,7 +12,9 @@ const Home = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Message variant='danger'>{error?.message}</Message>
+        <Message variant='danger'>
+          {error?.message || error?.data?.message}
+        </Message>
       ) : (
         <>
           <h1>Latest Products</h1>
