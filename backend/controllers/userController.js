@@ -59,29 +59,72 @@ const logoutUser = asyncHanlder((req, res) => {
 // @desc    Get user profile
 // @route   GET /api/users/profile
 // @access  Private
-const getUserProfile = asyncHanlder((req, res) => {
-  res.send('Get user profile');
+const getUserProfile = asyncHanlder(async (req, res) => {
+  const user = await User.findById(req.user._id);
+  if (user) {
+    res.status(200).json({
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error(`User not found`);
+  }
 });
 
 // @desc    Update user profile based on user token
 // @route   UPDATE /api/users/profile
 // @access  Private
-const updateUserProfile = asyncHanlder((req, res) => {
-  res.send('Update profile');
+const updateUserProfile = asyncHanlder(async (req, res) => {
+  const user = await User.findById(req.user._id);
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+
+    const updatedUser = await user.save();
+
+    res.status(200).json({
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error(`User not found`);
+  }
 });
 
 // @desc    Get all users
 // @route   GET /api/users/
 // @access  Private/Admin
-const getUsers = asyncHanlder((req, res) => {
-  res.send('get all users ');
+const getUsers = asyncHanlder(async (req, res) => {
+  const users = await User.find();
+  if (users.length > 0) {
+    res.status(200).json(users);
+  } else {
+    res.status(404);
+    throw new Error(`Error getting users`);
+  }
 });
 
 // @desc    Get user by id
 // @route   GET /api/users/:id
 // @access  Private/Admin
-const getUserById = asyncHanlder((req, res) => {
-  res.send('get a user by id ');
+const getUserById = asyncHanlder(async (req, res) => {
+  const userId = req.params.id;
+  const user = await User.findById(userId);
+  if (user) {
+    res.status(200).json(user);
+  } else {
+    res.status(404);
+    throw new Error(`User not found`);
+  }
 });
 
 // @desc    Update a user by id
