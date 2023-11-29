@@ -11,7 +11,7 @@ const generateToken = (res, userId) => {
     httpOnly: true,
     secure: __prod__,
     sameSite: 'strict',
-    maxAge: __prod__ ? 1 * 24 * 60 * 60 * 1000 : 30 * 24 * 60 * 60 * 1000,
+    maxAge: __prod__ ? 3 * 24 * 60 * 60 * 1000 : 30 * 24 * 60 * 60 * 1000,
   });
 };
 
