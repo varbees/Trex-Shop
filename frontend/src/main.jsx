@@ -14,12 +14,16 @@ import App from './App.jsx';
 import Home from './pages/Home.jsx';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/cartPage';
+import RegisterPage from './pages/RegisterPage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route path='/' index={true} element={<Home />} />
+      <Route path='/register' element={<RegisterPage />} />
+      <Route path='/login' element={<LoginPage />} />
       <Route path='/product/:id' element={<ProductPage />} />
       <Route path='/cart' element={<CartPage />} />
     </Route>
