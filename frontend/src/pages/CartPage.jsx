@@ -12,6 +12,7 @@ import {
 import { FaTrash } from 'react-icons/fa';
 import Message from '../components/message';
 import { addToCart, removeFromCart } from '../slices/cartSlice';
+import CheckoutSteps from '../components/CheckoutSteps';
 
 const CartPage = () => {
   const navigate = useNavigate();
@@ -33,6 +34,8 @@ const CartPage = () => {
 
   return (
     <Row>
+      <CheckoutSteps step1 />
+
       <Col md={8}>
         <h1 style={{ marginBottom: '20px' }}>Shopping Cart</h1>
         {cartItems.length === 0 ? (
