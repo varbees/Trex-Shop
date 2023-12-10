@@ -40,7 +40,6 @@ const RegisterPage = () => {
     } else {
       try {
         const res = await register({ ...formData }).unwrap();
-        console.log(res);
         dispatch(setCredentials({ ...res }));
         navigate(redirect);
       } catch (err) {

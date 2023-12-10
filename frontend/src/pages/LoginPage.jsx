@@ -24,8 +24,6 @@ const LoginPage = () => {
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const redirect = sp.get('redirect') || '/';
-  console.log(sp.get('redirect'));
-  console.log(redirect);
 
   useEffect(() => {
     if (userInfo) {
